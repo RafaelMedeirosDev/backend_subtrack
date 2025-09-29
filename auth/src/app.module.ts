@@ -6,6 +6,7 @@ import { FindUserUseCase } from './usecases/users/FindUserUseCase';
 import { PrismaUserRepository } from './repositories/PrismaUserRepository';
 import { UserRepository } from './domain/repositories/UserRepository';
 import { JwtService } from '@nestjs/jwt';
+import { RegisterUseCase } from './usecases/auth/RegisterUseCase';
 
 @Module({
   imports: [],
@@ -15,6 +16,7 @@ import { JwtService } from '@nestjs/jwt';
       provide: UserRepository,
       useClass: PrismaUserRepository,
     },
+    RegisterUseCase,
     JwtService,
     PrismaService,
     LoginUseCase,
